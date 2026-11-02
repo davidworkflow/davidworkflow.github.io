@@ -45,7 +45,8 @@ ul { list-style: none; }
 h2 { font-size: clamp(1.7rem, 4vw, 2.2rem); font-weight: 500; line-height: 1.2; letter-spacing: -.01em; margin-bottom: 2rem; }
 
 /* header */
-.top { display: flex; justify-content: space-between; align-items: baseline; padding: 1.8rem 0 1rem; font-size: 1rem; }
+.top { position: sticky; top: 0; z-index: 10; background: var(--bg); display: flex; justify-content: space-between; align-items: baseline; padding: 1.8rem 0 1rem; font-size: 1rem; }
+html { scroll-padding-top: 5rem; }
 .mark { display: inline-flex; line-height: 0; transition: transform .25s; }
 .mark:hover { transform: rotate(-6deg) scale(1.06); }
 .top nav { display: flex; gap: 1.5rem; align-items: baseline; }
