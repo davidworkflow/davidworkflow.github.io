@@ -1,0 +1,119 @@
+:root {
+  --bg: #f6f0e4;
+  --paper: #fffaf0;
+  --ink: #241e18;
+  --muted: #6f6659;
+  --accent: #c2512f;
+  --rule: #ddd2bf;
+  --mark: #f3d98b;
+  --c0: #c2512f;
+  --c1: #3f7a6b;
+  --c2: #d19a2b;
+  --c3: #5b6fa8;
+  --shadow: #241e18;
+}
+:root[data-theme="dark"] {
+  --bg: #1b1814;
+  --paper: #25211c;
+  --ink: #efe7d8;
+  --muted: #a89f8f;
+  --accent: #e68a63;
+  --rule: #38322a;
+  --mark: #5a4a1f;
+  --c0: #e68a63;
+  --c1: #6fb5a2;
+  --c2: #e2b455;
+  --c3: #8fa2d8;
+  --shadow: #0d0b09;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font: 1.1rem/1.7 "Newsreader", Georgia, serif;
+  -webkit-font-smoothing: antialiased;
+}
+::selection { background: var(--mark); }
+a { color: inherit; text-decoration-color: var(--accent); text-underline-offset: .2em; }
+a:hover { color: var(--accent); }
+ul { list-style: none; }
+
+.page { max-width: 860px; margin: 0 auto; padding: 0 1.5rem 3rem; }
+.label { font: 500 .78rem/1 "IBM Plex Mono", monospace; text-transform: uppercase; letter-spacing: .1em; color: var(--accent); margin-bottom: .8rem; }
+h2 { font-size: clamp(1.7rem, 4vw, 2.2rem); font-weight: 500; line-height: 1.2; letter-spacing: -.01em; margin-bottom: 2rem; }
+
+/* header */
+.top { display: flex; justify-content: space-between; align-items: baseline; padding: 1.8rem 0 1rem; font-size: 1rem; }
+.mark { display: inline-flex; line-height: 0; transition: transform .25s; }
+.mark:hover { transform: rotate(-6deg) scale(1.06); }
+.top nav { display: flex; gap: 1.5rem; align-items: baseline; }
+.top nav a { color: var(--muted); text-decoration: none; }
+.top nav a:hover { color: var(--accent); }
+.toggle { background: none; border: 1px solid var(--rule); border-radius: 999px; padding: .1rem .8rem; font: inherit; font-size: .9rem; color: var(--muted); cursor: pointer; }
+.toggle:hover { border-color: var(--accent); color: var(--accent); }
+
+/* intro */
+.intro { padding: 4.5rem 0 3rem; }
+h1 { font-size: clamp(2.2rem, 5.6vw, 3.4rem); line-height: 1.15; font-weight: 500; letter-spacing: -.02em; max-width: 17em; }
+.hl { background: linear-gradient(transparent 58%, var(--mark) 58%, var(--mark) 92%, transparent 92%); padding: 0 .1em; }
+.lead { max-width: 33em; margin: 1.6rem 0 2rem; color: var(--muted); font-size: 1.15rem; }
+.btn { display: inline-block; padding: .7rem 1.5rem; background: var(--ink); color: var(--bg); border-radius: 999px; text-decoration: none; font-weight: 500; transition: background .2s, transform .2s; }
+.btn:hover { background: var(--accent); color: #fff; transform: translateY(-2px); }
+
+/* facts */
+.facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 1rem; }
+.facts div { background: var(--paper); border: 1px solid var(--rule); border-radius: 14px; padding: 1.2rem 1.3rem; }
+.facts b { display: block; font-size: 2.6rem; font-weight: 500; line-height: 1; color: var(--accent); }
+.facts div:nth-child(2) b { color: var(--c1); }
+.facts div:nth-child(3) b { color: var(--c3); }
+.facts span { display: block; margin-top: .4rem; font-size: .95rem; line-height: 1.4; color: var(--muted); }
+
+/* sections */
+.block { padding: 4.5rem 0 0; }
+.prose { max-width: 36em; }
+.prose p + p { margin-top: 1rem; }
+
+/* experience timeline */
+.timeline { position: relative; }
+.timeline::before { content: ""; position: absolute; left: 23px; top: 10px; bottom: 10px; width: 2px; background: var(--rule); }
+.job { position: relative; display: grid; grid-template-columns: 48px 1fr; gap: 1.4rem; padding-bottom: 2.6rem; }
+.mono { z-index: 1; width: 48px; height: 48px; border-radius: 14px; display: grid; place-items: center; color: #fff; font: 600 1rem "IBM Plex Mono", monospace; border: 3px solid var(--bg); }
+.c0 { background: var(--c0); } .c1 { background: var(--c1); } .c2 { background: var(--c2); } .c3 { background: var(--c3); }
+.job h3 { font-size: 1.3rem; font-weight: 600; line-height: 1.3; }
+.co { font-weight: 500; color: var(--accent); }
+.co span { font-weight: 400; color: var(--muted); }
+.meta { font: .78rem/1.8 "IBM Plex Mono", monospace; color: var(--muted); margin-bottom: .6rem; }
+.job li { position: relative; padding-left: 1.1rem; margin-top: .35rem; }
+.job li::before { content: ""; position: absolute; left: 0; top: .78em; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+.stack { margin-top: .8rem; font: .78rem/1.7 "IBM Plex Mono", monospace; color: var(--muted); }
+
+/* project cards */
+.cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.4rem; }
+.card { background: var(--paper); border: 1.5px solid var(--ink); border-radius: 14px; padding: 1.5rem; box-shadow: 5px 5px 0 var(--shadow); transition: transform .2s, box-shadow .2s; }
+.card:hover { transform: translate(-2px, -2px); box-shadow: 8px 8px 0 var(--shadow); }
+.card h3 { font-size: 1.2rem; font-weight: 600; line-height: 1.3; padding-top: .8rem; border-top: 5px solid var(--c0); margin-top: -1.5rem; margin-bottom: .6rem; display: inline-block; }
+.t1 h3 { border-color: var(--c1); } .t2 h3 { border-color: var(--c2); } .t3 h3 { border-color: var(--c3); }
+.card p { font-size: 1rem; line-height: 1.6; }
+
+/* toolbox */
+.tools { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.4rem 2.5rem; }
+.tools dt { font-weight: 600; padding-bottom: .2rem; margin-bottom: .3rem; border-bottom: 1px dashed var(--rule); }
+.tools dd { color: var(--muted); font-size: 1rem; line-height: 1.55; }
+
+/* contact */
+.contact { margin-top: 5rem; padding: 3.5rem 2rem; text-align: center; background: var(--ink); color: var(--bg); border-radius: 22px; }
+.contact .label { color: var(--mark); }
+.contact h2 { margin-bottom: 1.2rem; }
+.mail { font-size: clamp(1.3rem, 4.5vw, 2.1rem); text-decoration-color: var(--mark); text-decoration-thickness: 2px; }
+.mail:hover { color: var(--mark); }
+
+footer { margin-top: 3rem; text-align: center; color: var(--muted); font-size: .9rem; }
+
+@media (max-width: 680px) {
+  .facts, .cards, .tools { grid-template-columns: 1fr; }
+  .top nav .hide-sm { display: none; }
+  .intro { padding-top: 3rem; }
+  .job { gap: 1rem; }
+}
